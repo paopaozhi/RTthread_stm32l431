@@ -42,7 +42,7 @@ extern "C" {
   */
 
 /**
-  * @brief Configuration of the Cortex-M4 Processor and Core Peripherals
+  * @brief Configuration of the Cortex-M4 Processor and App Peripherals
    */
 #define __CM4_REV                 0x0001U  /*!< Cortex-M4 revision r0p1                       */
 #define __MPU_PRESENT             1U       /*!< STM32L4XX provides an MPU                     */
@@ -12180,7 +12180,7 @@ typedef struct {
 /******************  Bit definition for SYSCFG_CFGR2 register  ****************/
 #define SYSCFG_CFGR2_CLL_Pos            (0U)
 #define SYSCFG_CFGR2_CLL_Msk            (0x1UL << SYSCFG_CFGR2_CLL_Pos)        /*!< 0x00000001 */
-#define SYSCFG_CFGR2_CLL                SYSCFG_CFGR2_CLL_Msk                   /*!< Core Lockup Lock */
+#define SYSCFG_CFGR2_CLL                SYSCFG_CFGR2_CLL_Msk                   /*!< App Lockup Lock */
 #define SYSCFG_CFGR2_SPL_Pos            (1U)
 #define SYSCFG_CFGR2_SPL_Msk            (0x1UL << SYSCFG_CFGR2_SPL_Pos)        /*!< 0x00000002 */
 #define SYSCFG_CFGR2_SPL                SYSCFG_CFGR2_SPL_Msk                   /*!< SRAM Parity Lock*/
