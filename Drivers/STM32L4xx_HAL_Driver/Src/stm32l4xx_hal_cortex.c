@@ -43,7 +43,7 @@
         (++) Configures the SysTick Reload register with value passed as function parameter.
         (++) Configures the SysTick IRQ priority to the lowest value (0x0F).
         (++) Resets the SysTick Counter register.
-        (++) Configures the SysTick Counter clock source to be Core Clock Source (HCLK).
+        (++) Configures the SysTick Counter clock source to be App Clock Source (HCLK).
         (++) Enables the SysTick Interrupt.
         (++) Starts the SysTick Counter.
 

@@ -130,9 +130,9 @@
 #define __VECTOR_TABLE_ATTRIBUTE  __attribute((used, section("RESET")))
 #endif
 
-/* ###########################  Core Function Access  ########################### */
+/* ###########################  App Function Access  ########################### */
 /** \ingroup  CMSIS_Core_FunctionInterface
-    \defgroup CMSIS_Core_RegAccFunctions CMSIS Core Register Access Functions
+    \defgroup CMSIS_Core_RegAccFunctions CMSIS App Register Access Functions
   @{
  */
 
@@ -385,8 +385,8 @@ __STATIC_INLINE void __set_FPSCR(uint32_t fpscr) {
 /*@} end of CMSIS_Core_RegAccFunctions */
 
 
-/* ##########################  Core Instruction Access  ######################### */
-/** \defgroup CMSIS_Core_InstructionInterface CMSIS Core Instruction Interface
+/* ##########################  App Instruction Access  ######################### */
+/** \defgroup CMSIS_Core_InstructionInterface CMSIS App Instruction Interface
   Access to dedicated instructions
   @{
 */
