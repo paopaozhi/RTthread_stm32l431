@@ -12,7 +12,7 @@ int main(void) {
         rt_thread_startup(sysled);
     }
 
-    LCD_ShowString(0, 0, 15 * 16, 32 * 2, 16, "Hello RT_thread!");
+    LCD_ShowString(0, 0, 15 * 16, 32 * 2, 24, "Hello RT_thread!");
 
     while (1) {
         rt_kprintf("Hello RT_thread!\r");
