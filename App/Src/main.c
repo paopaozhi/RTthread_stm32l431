@@ -6,20 +6,33 @@ static rt_thread_t sysled = RT_NULL;
 void sys_led(void *param);
 
 int main(void) {
-    sysled = rt_thread_create("sysled", sys_led, RT_NULL, 128, 30, 5);
+
+    //初始化系统提示线程
+    sysled = rt_thread_create("sysled",
+                              sys_led,
+                              RT_NULL,
+                              128,
+                              30,
+                              5);
 
     if (sysled != RT_NULL) {
         rt_thread_startup(sysled);
     }
 
+
     LCD_ShowString(0, 0, 15 * 16, 32 * 2, 24, "Hello RT_thread!");
 
-    while (1) {
-        rt_kprintf("Hello RT_thread!\r");
-        rt_thread_delay(500);
-    }
 }
 
+void hello1(void) {
+    rt_kprintf("hello RT-Thread!\n");
+}
+MSH_CMD_EXPORT(hello1 , say hello to RT-Thread);
+
+/**
+ * @brief 提示系统运行
+ * @param param 无
+ */
 void sys_led(void *param) {
     while (1) {
         HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);

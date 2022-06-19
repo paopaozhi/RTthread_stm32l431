@@ -92,24 +92,46 @@ SECTIONS
 
     . = ALIGN(8);
     _etext = .;        /* define a global symbols at end of code */
-    /* 来自物联网 以支持RT_thread的组件自动化何FINSH */
+    /* 来自物联网 以支持RT_thread的组件自动化 和 FINSH */
     /* section information for finsh shell */
-    . = ALIGN(4);
-    __fsymtab_start = .;
-    KEEP(*(FSymTab))
-    __fsymtab_end = .;
-    . = ALIGN(4);
-    __vsymtab_start = .;
-    KEEP(*(VSymTab))
-    __vsymtab_end = .;
-    . = ALIGN(4);
+		/* section information for finsh shell */
+	. = ALIGN(4);
+	__fsymtab_start = .;
+	KEEP(*(FSymTab))
+	__fsymtab_end = .;
 
-    /* section information for initial. */
-    . = ALIGN(4);
-    __rt_init_start = .;
-    KEEP(*(SORT(.rti_fn*)))
-    __rt_init_end = .;
-    . = ALIGN(4);
+	. = ALIGN(4);
+	__vsymtab_start = .;
+	KEEP(*(VSymTab))
+	__vsymtab_end = .;
+
+	/* section information for utest */
+	. = ALIGN(4);
+	__rt_utest_tc_tab_start = .;
+	KEEP(*(UtestTcTab))
+	__rt_utest_tc_tab_end = .;
+
+	/* section information for at server */
+	. = ALIGN(4);
+	__rtatcmdtab_start = .;
+	KEEP(*(RtAtCmdTab))
+	__rtatcmdtab_end = .;
+	. = ALIGN(4);
+
+	/* section information for initial. */
+	. = ALIGN(4);
+	__rt_init_start = .;
+	KEEP(*(SORT(.rti_fn*)))
+	__rt_init_end = .;
+
+	. = ALIGN(4);
+
+	PROVIDE(__ctors_start__ = .);
+	KEEP (*(SORT(.init_array.*)))
+	KEEP (*(.init_array))
+	PROVIDE(__ctors_end__ = .);
+
+	. = ALIGN(4);
   } >FLASH
 
   /* Constant data goes into FLASH */
@@ -121,8 +143,8 @@ SECTIONS
     . = ALIGN(8);
   } >FLASH
 
-  .ARM.extab   : 
-  { 
+  .ARM.extab   :
+  {
   . = ALIGN(8);
   *(.ARM.extab* .gnu.linkonce.armextab.*)
   . = ALIGN(8);
@@ -143,7 +165,7 @@ SECTIONS
     PROVIDE_HIDDEN (__preinit_array_end = .);
 	. = ALIGN(8);
   } >FLASH
-  
+
   .init_array :
   {
 	. = ALIGN(8);
@@ -167,7 +189,7 @@ SECTIONS
   _sidata = LOADADDR(.data);
 
   /* Initialized data sections goes into RAM, load LMA copy after code */
-  .data : 
+  .data :
   {
     . = ALIGN(8);
     _sdata = .;        /* create a global symbol at data start */
@@ -178,7 +200,7 @@ SECTIONS
     _edata = .;        /* define a global symbol at data end */
   } >RAM AT> FLASH
 
-  
+
   /* Uninitialized data section */
   . = ALIGN(4);
   .bss :
@@ -206,7 +228,7 @@ SECTIONS
     . = ALIGN(8);
   } >RAM
 
-  
+
 
   /* Remove information from the standard libraries */
   /DISCARD/ :
