@@ -4,7 +4,7 @@
  * SEM_TEST 1 例程1
  *          2 例程2
  */
-#define SEM_TEST 2
+#define SEM_TEST 0
 
 #if SEM_TEST == 1
 
