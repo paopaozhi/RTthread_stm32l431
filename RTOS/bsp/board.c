@@ -89,22 +89,37 @@ void rt_hw_board_init() {
  * @brief 重新实现rt_hw_console_output打印函数
  * @param str
  */
+
 void rt_hw_console_output(const char *str) {
-    /* 进入临界段 */
-    rt_enter_critical();
+    rt_size_t i = 0, size = 0;
+    char a = '\r';
 
-    /* 直到字符串结束 */
-    while (*str != '\0') {
-        /* 换行 */
-        if (*str == '\n') {
-            HAL_UART_Transmit(&huart1, (uint8_t *) '\r', 1, 1000);
+    __HAL_UNLOCK(&huart1);
+
+    size = rt_strlen(str);
+    for (i = 0; i < size; i++) {
+        if (*(str + i) == '\n') {
+            HAL_UART_Transmit(&huart1, (uint8_t *) &a, 1, 1);
         }
-        HAL_UART_Transmit(&huart1, (uint8_t *) (str++), 1, 1000);
+        HAL_UART_Transmit(&huart1, (uint8_t *) (str + i), 1, 1);
     }
-
-    /* 退出临界段 */
-    rt_exit_critical();
 }
+
+
+char rt_hw_console_getchar(void) {
+    int ch = -1;
+
+    if (__HAL_UART_GET_FLAG(&huart1, UART_FLAG_RXNE) != RESET) {
+        ch = huart1.Instance->RDR & 0xff;
+    } else {
+        if (__HAL_UART_GET_FLAG(&huart1, UART_FLAG_ORE) != RESET) {
+            __HAL_UART_CLEAR_OREFLAG(&huart1);
+        }
+        rt_thread_mdelay(10);
+    }
+    return ch;
+}
+
 
 void SysTick_Handler(void) {
     /* enter interrupt */

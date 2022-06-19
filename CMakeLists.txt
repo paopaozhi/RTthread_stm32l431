@@ -59,13 +59,14 @@ include_directories(
         RTOS/bsp
         RTOS/include
         RTOS/include/libc
+        RTOS/finsh
         Hardware/LCD)
 
 add_definitions(-DUSE_HAL_DRIVER -DSTM32L431xx)
 
 file(GLOB_RECURSE SOURCES "startup/*.*" "Drivers/*.*" "App/*.*")
 
-file(GLOB_RECURSE RTOS "RTOS/bsp/*.*" "RTOS/libcpu/arm/cortex-m4/*.*" "RTOS/src/*.*")
+file(GLOB_RECURSE RTOS "RTOS/bsp/*.*" "RTOS/libcpu/arm/cortex-m4/*.*" "RTOS/src/*.*" "RTOS/finsh/*.c")
 
 file(GLOB_RECURSE Hardware "Hardware/LCD/*.*")
 

@@ -80,7 +80,7 @@
 #define RT_TIMER_THREAD_PRIO        4
 // <o>The stack size of timer thread <0-8192>
 //  <i>Default: 512
-#define RT_TIMER_THREAD_STACK_SIZE  512
+#define RT_TIMER_THREAD_STACK_SIZE  1024
 // </e>
 
 // <h>IPC(Inter-process communication) Configuration
@@ -132,7 +132,35 @@
 #define RT_CONSOLEBUF_SIZE          128
 // </h>
 
-#if defined(RT_USING_FINSH)
+#include "finsh_config.h"
+
+/* 开启 FinSH */
+#define RT_USING_FINSH
+
+/* 将线程名称定义为 tshell */
+#define FINSH_THREAD_NAME "tshell"
+
+/* 开启历史命令 */
+#define FINSH_USING_HISTORY
+/* 记录 5 行历史命令 */
+#define FINSH_HISTORY_LINES 5
+
+/* 开启使用 Tab 键 */
+#define FINSH_USING_SYMTAB
+/* 开启描述功能 */
+#define FINSH_USING_DESCRIPTION
+
+/* 定义命令字符长度为 80 字节 */
+#define FINSH_CMD_SIZE 80
+
+/* 开启 msh 功能 */
+#define FINSH_USING_MSH
+/* 默认使用 msh 功能 */
+#define FINSH_USING_MSH_DEFAULT
+/* 最大输入参数数量为 10 个 */
+#define FINSH_ARG_MAX 10
+
+#if NO_finsh
 #define FINSH_USING_MSH
 #define FINSH_USING_MSH_ONLY
 // <h>Finsh Configuration

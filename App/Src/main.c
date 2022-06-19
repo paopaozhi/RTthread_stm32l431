@@ -20,10 +20,14 @@ int main(void) {
     }
 
 
-
     LCD_ShowString(0, 0, 15 * 16, 32 * 2, 24, "Hello RT_thread!");
 
 }
+
+void hello1(void) {
+    rt_kprintf("hello RT-Thread!\n");
+}
+MSH_CMD_EXPORT(hello1 , say hello to RT-Thread);
 
 /**
  * @brief 提示系统运行
