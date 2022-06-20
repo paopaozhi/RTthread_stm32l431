@@ -1,13 +1,30 @@
 ## RT_thread_nano 移植 
 
-硬件平台使用:STM32L431RC
+| 名称         | 结果        |
+| ------------ | ----------- |
+| 硬件平台使用 | STM32L431RC |
+| 板卡         | 小熊派      |
+| 运行环境     | GCC         |
+| IDE环境      | CLion       |
 
-板卡:小熊派
+移植教程：
 
-计划官方文档的示例全部移植
+1.下载RT_Thread_nano源码包
 
-计划列表
+[下载文档](https://github.com/RT-Thread/rtthread-nano)
 
-1.移植线程同步
+官方下载地址：[RT-Thread/rtthread-nano: nano version of RT-Thread (github.com)](https://github.com/RT-Thread/rtthread-nano)
 
-2.移植
+2.使用STM32Cubx生成一个模板工程
+
+
+
+3.删除多于文件
+
+4.移植RTOS
+
+5.修改RTconfig文件
+
+6.修改链接文件
+
+7.测试
