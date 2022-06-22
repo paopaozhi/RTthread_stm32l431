@@ -11,9 +11,7 @@
 
 1.下载RT_Thread_nano源码包
 
-[下载文档](https://github.com/RT-Thread/rtthread-nano)
-
-官方下载地址：[RT-Thread/rtthread-nano: nano version of RT-Thread (github.com)](https://github.com/RT-Thread/rtthread-nano)
+[下载文档](https://gitee.com/paopaozhi/rtthread_stm32l431/blob/main/Doc/Download.md)
 
 2.使用STM32Cubx生成一个模板工程
 
