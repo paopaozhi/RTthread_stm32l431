@@ -7,7 +7,7 @@ void sys_led(void *param);
 
 int main(void) {
 
-    //初始化系统提示线程
+    //初始化系统提示线程 开始
     sysled = rt_thread_create("sysled",
                               sys_led,
                               RT_NULL,
@@ -18,7 +18,7 @@ int main(void) {
     if (sysled != RT_NULL) {
         rt_thread_startup(sysled);
     }
-
+    //结束
 
     LCD_ShowString(0, 0, 15 * 16, 32 * 2, 24, "Hello RT_thread!");
 

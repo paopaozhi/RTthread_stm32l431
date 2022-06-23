@@ -5,8 +5,8 @@
 
 #include <rtthread.h>
 #include "main.h"
-#include "usart.h"
-#include "gpio.h"
+#include "../../Board/Inc/usart.h"
+#include "../../Board/Inc/gpio.h"
 
 #if defined(__CC_ARM) || defined(__CLANG_ARM)
 //#include "RTE_Components.h"
