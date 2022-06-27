@@ -46,7 +46,7 @@ long hello(void)
 
     return 0;
 }
-FINSH_FUNCTION_EXPORT(hello, say hello world);
+MSH_CMD_EXPORT(hello, say hello world);
 
 extern void rt_show_version(void);
 long version(void)
