@@ -7,6 +7,15 @@ void sys_led(void *param);
 
 int main(void) {
 
+    LCD_ShowString(0, 0, 15 * 16, 32 * 2, 24, "Hello RT_thread!");
+
+}
+
+/**
+ * @brief 初始化
+ * @return 无
+ */
+int sys_led_init(void){
     //初始化系统提示线程 开始
     sysled = rt_thread_create("sysled",
                               sys_led,
@@ -19,10 +28,8 @@ int main(void) {
         rt_thread_startup(sysled);
     }
     //结束
-
-    LCD_ShowString(0, 0, 15 * 16, 32 * 2, 24, "Hello RT_thread!");
-
 }
+INIT_APP_EXPORT(sys_led_init);
 
 /**
  * @brief 提示系统运行
