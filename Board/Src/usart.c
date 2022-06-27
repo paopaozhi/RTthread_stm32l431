@@ -18,7 +18,7 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include "../Inc/usart.h"
+#include "usart.h"
 
 /* USER CODE BEGIN 0 */
 

@@ -52,6 +52,7 @@ endif ()
 
 include_directories(
         App/Inc
+        Board/Inc
         Drivers/STM32L4xx_HAL_Driver/Inc
         Drivers/STM32L4xx_HAL_Driver/Inc/Legacy
         Drivers/CMSIS/Device/ST/STM32L4xx/Include
@@ -64,7 +65,7 @@ include_directories(
 
 add_definitions(-DUSE_HAL_DRIVER -DSTM32L431xx)
 
-file(GLOB_RECURSE SOURCES "startup/*.*" "Drivers/*.*" "App/*.*")
+file(GLOB_RECURSE SOURCES "startup/*.*" "Drivers/*.*" "App/*.*" "Board/Src/*.*")
 
 file(GLOB_RECURSE RTOS "RTOS/bsp/*.*" "RTOS/libcpu/arm/cortex-m4/*.*" "RTOS/src/*.*" "RTOS/finsh/*.c")
 
