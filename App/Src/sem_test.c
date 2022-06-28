@@ -12,7 +12,7 @@
 #define THREAD_TIMESLICE        5
 
 /* 指向信号量的指针 */
-static rt_sem_t dynamic_sem = RT_NULL;
+rt_sem_t dynamic_sem = RT_NULL;
 
 ALIGN(RT_ALIGN_SIZE)
 static char thread1_stack[1024];
@@ -79,6 +79,7 @@ int semaphore_sample(void)
         rt_kprintf("create done. dynamic semaphore value = 0.\n");
     }
 
+//   创建线程一
     rt_thread_init(&thread1,
                    "thread1",
                    rt_thread1_entry,
@@ -88,6 +89,7 @@ int semaphore_sample(void)
                    THREAD_PRIORITY, THREAD_TIMESLICE);
     rt_thread_startup(&thread1);
 
+//    创建线程二
     rt_thread_init(&thread2,
                    "thread2",
                    rt_thread2_entry,
@@ -106,7 +108,7 @@ INIT_APP_EXPORT(semaphore_sample);
 #elif SEM_TEST == 2
 /**
  * @brief 来自官方生产者消费者例程 同步量
- *         简单修改
+ *         简单修改 添加简单注释
  */
 
 #define THREAD_PRIORITY       6

@@ -61,7 +61,7 @@ include_directories(
         RTOS/include
         RTOS/include/libc
         RTOS/finsh
-        Hardware/LCD)
+        Hardware/Inc)
 
 add_definitions(-DUSE_HAL_DRIVER -DSTM32L431xx)
 
@@ -69,7 +69,7 @@ file(GLOB_RECURSE SOURCES "startup/*.*" "Drivers/*.*" "App/*.*" "Board/Src/*.*")
 
 file(GLOB_RECURSE RTOS "RTOS/bsp/*.*" "RTOS/libcpu/arm/cortex-m4/*.*" "RTOS/src/*.*" "RTOS/finsh/*.c")
 
-file(GLOB_RECURSE Hardware "Hardware/LCD/*.*")
+file(GLOB_RECURSE Hardware "Hardware/*.*")
 
 set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/STM32L431RCTx_FLASH.ld)
 

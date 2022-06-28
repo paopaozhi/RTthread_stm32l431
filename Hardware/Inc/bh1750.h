@@ -2,8 +2,8 @@
 // Created by paopaozhi on 2022/5/12.
 //
 
-#ifndef BH1750_H
-#define BH1750_H
+#ifndef __BH1750_H
+#define __BH1750_H
 
 #include "main.h"
 
@@ -24,4 +24,4 @@ typedef enum {
 
 uint16_t BH1750_GetLux(void);
 
-#endif //BH1750_H
+#endif
