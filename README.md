@@ -15,6 +15,14 @@
 
 2.使用STM32Cubx生成一个模板工程
 
+选择对应芯片型号即可
+
+**只要修改几处即可**(只贴出图片不在解释)
+
+![image-20220628154526728](https://picture.paopaozhiiot.cn/image-20220628154526728.png)
+
+![image-20220628154913498](https://picture.paopaozhiiot.cn//image-20220628154913498.png)
+
 3.删除多于文件
 
 4.移植RTOS
