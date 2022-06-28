@@ -1,12 +1,12 @@
 #include "main.h"
 #include "lcd.h"
+#include "bh1750.h"
 
 static rt_thread_t sysled = RT_NULL;
 
 void sys_led(void *param);
 
 int main(void) {
-
     LCD_ShowString(0, 0, 15 * 16, 32 * 2, 24, "Hello RT_thread!");
 
 }
@@ -16,6 +16,8 @@ int main(void) {
  * @return 无
  */
 int sys_led_init(void){
+    MX_I2C1_Init();
+
     //初始化系统提示线程 开始
     sysled = rt_thread_create("sysled",
                               sys_led,

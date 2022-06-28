@@ -5,8 +5,9 @@
 
 #include <rtthread.h>
 #include "main.h"
-#include "../../Board/Inc/usart.h"
-#include "../../Board/Inc/gpio.h"
+#include "usart.h"
+#include "gpio.h"
+#include "i2c.h"
 
 #if defined(__CC_ARM) || defined(__CLANG_ARM)
 //#include "RTE_Components.h"
